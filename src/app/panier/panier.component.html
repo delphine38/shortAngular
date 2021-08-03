@@ -1,0 +1,21 @@
+<h2>Le panier</h2>
+
+table>(thead>tr>>th*4)+tbody>tr>4td
+<table class="table table-striped">
+  <thead>
+    <tr>Short</tr>
+    <tr>Prix</tr>
+    <tr>Quantité</tr>
+    <tr>Bouton</tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let short of panier">
+      <td>france</td>
+      <td>1 €</td>
+      <td>1</td>
+      <td><button class="btn bg-danger">Retirer</button></td>
+    </tr>
+  </tbody>
+</table>
+
