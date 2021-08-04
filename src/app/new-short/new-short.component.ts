@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NewShortComponent implements OnInit {
 
-  createShort(nom:string, taille:string, couleur:string){
-    this.httpClient.post('http://localhost:8000/short/create', {
-      name: nom,
-      taille: taille,
-      couleur: couleur
-    }).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['boutique'])
-    })
+  createShort(name: string, color: string, size: string, price: number) {
+    this.httpClient.post('http://localhost:8000/api/short/create', {
+      name: name,
+      color: color,
+      size :size,
+      price: price
+    }).subscribe(data => {console.log(data)
+      this.router.navigate(['short'])})
+
 
   }
 

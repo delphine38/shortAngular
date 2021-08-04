@@ -1,18 +1,25 @@
 <h1>créer un nouveau short Angular</h1>
 
-<a [routerLink]="['/shop']" class="btn-primary">Retour aux shorts</a>
-<div class="col-3">
-  <input placeholder="Nom de votre short" type="text">
-</div>
+<a [routerLink]="['/boutique']" class="btn-primary">Retour aux shorts</a>
+<form>
 
-<div class="col-3">
-  <input placeholder="Taille de votre short" type="text">
-</div>
+  <div class="col-3">
+    <input placeholder="Nom de votre short" name="name"  type="text" #name>
+  </div>
 
-<div class="col-3">
-  <input placeholder="Couleur de votre short" type="text">
-</div>
+  <div class="col-3">
+    <input placeholder="Taille de votre short" name="size"  type="text" #size>
+  </div>
 
-<div class="form-group">
-  <button (click)="createShort" class="btn btn-primary">Créer ce short</button>
-</div>
+  <div class="col-3">
+    <input placeholder="Couleur de votre short" name="color"  type="text" #color>
+  </div>
+  <div class="col-3">
+    <input placeholder="Prix de votre short" name="price" type="number" #price>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" (click)="createShort(name.value, color.value, size.value, price.value)" class="btn btn-primary">Créer ce short</button>
+  </div>
+</form>
+
