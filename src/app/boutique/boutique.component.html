@@ -2,19 +2,26 @@
 <a routerLink="/new-short" class="btn btn-primary">Créer</a>
 
 
+
+
+
 <div class="row"*ngFor="let short of lesShorts">
 
+    <div>
 
-  <p><strong>Modèle : {{ short.name }}</strong></p>
-  <p><strong>Taille : {{ short.size }}</strong></p>
-  <p><strong>Couleur : {{ short.color }}</strong></p>
-  <p><strong>id : {{ short.id }}</strong></p>
+      <p><strong>Modèle : {{ short.name }}</strong></p>
+      <p><strong>Taille : {{ short.size }}</strong></p>
+      <p><strong>Couleur : {{ short.color }}</strong></p>
+      <p><strong>id : {{ short.id }}</strong></p>
 
-  <div class="col-4">
-      <button class="btn bg-danger"(click)="deleteShort(short.id)">Supprimer</button>
+        <div class="col-4">
+          <button class="btn bg-danger"(click)="deleteShort(short.id)">Supprimer</button>
 
-    <button class="btn btn-success"> Ajoutez au panier</button>
-  </div>
+          <a (click)="ajouteLesArticlesDansLePanier(short)" class="btn bg-success">Ajoute au panier</a>
+
+        </div>
+
+    </div>
 
 </div>
 

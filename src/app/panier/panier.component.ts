@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {LivreurshopService} from '../livreurshop.service';
 
 @Component({
   selector: 'app-panier',
@@ -27,16 +28,12 @@ export class PanierComponent implements OnInit {
   }
 
 
-  constructor(private monClient: HttpClient) {
-
-    this.monClient.get('http://localhost:8000/api/shorts')
-      .subscribe(donnees => {
-        this.panier = donnees
-
-      })
+  constructor(private livreurshop : LivreurshopService) {
   }
 
   ngOnInit(): void {
+
+    this.panier = this.livreurshop.donne();
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {LivreurshopService} from '../livreurshop.service';
 
 @Component({
   selector: 'app-boutique',
@@ -8,7 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BoutiqueComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {
+
+short:any = [];
+panier:any = [];
+
+//ici methode pour ajouter des articles au panier
+  ajouteLesArticlesDansLePanier(short: any){
+    this.panier.push(short);
+    this.livreurShop.prends(this.panier);
+
+    console.log(this.panier);
+  }
+
+
+  constructor(private httpClient: HttpClient, private  livreurShop : LivreurshopService) {
     this.getShortsFromApi();
   }
 
