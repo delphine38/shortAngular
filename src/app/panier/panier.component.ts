@@ -10,6 +10,10 @@ import {LivreurshopService} from '../livreurshop.service';
 export class PanierComponent implements OnInit {
 
   panier:any = [];
+  short:any = [];
+
+
+
 
   calculeLeTotalEtDonneLeMoi(){
 
@@ -34,6 +38,10 @@ export class PanierComponent implements OnInit {
   ngOnInit(): void {
 
     this.panier = this.livreurshop.donne();
+  }
+
+  ngOnDestroy(): void{
+    this.livreurshop.prends(this.panier);
   }
 
 }

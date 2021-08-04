@@ -3,11 +3,12 @@
 <table class="col-6">
   <thead>
     <tr></tr>
-      <th>Name</th>
-      <th>Size</th>
-      <th>price</th>
-      <th>Quantité</th>
+      <td>Name</td>
+      <td>Size</td>
+      <td>Price</td>
+    <td>Quantité</td>
 
+    <td>Sous-total variable</td>
     <tr></tr>
   </thead>
 
@@ -16,6 +17,15 @@
       <td>{{short.name}}</td>
       <td>{{short.size}}</td>
       <td>{{short.price}} €</td>
+      <td>
+        <select class="form-select">
+          <option selected>Quantité</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+      </select></td>
+      <td> €</td>
+
 
       <td><button (click)="enleveDuPanier(short)" class="btn bg-danger">Retirer</button></td>
     </tr>

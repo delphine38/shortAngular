@@ -26,7 +26,8 @@ panier:any = [];
     this.getShortsFromApi();
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
+    this.panier = this.livreurShop.donne();
   }
 
   lesShorts: any = [];

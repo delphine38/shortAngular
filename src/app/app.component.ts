@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LivreurshopService} from './livreurshop.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'short';
+
+
+  combienDeShorts(){
+    return this.livreurshop.donne().length;
+  }
+
+  constructor(private livreurshop: LivreurshopService) {
+  }
+
 }
