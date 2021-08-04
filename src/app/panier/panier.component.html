@@ -1,21 +1,28 @@
 <h2>Le panier</h2>
 
-table>(thead>tr>>th*4)+tbody>tr>4td
-<table class="table table-striped">
+<table class="col-6">
   <thead>
-    <tr>Short</tr>
-    <tr>Prix</tr>
-    <tr>Quantité</tr>
-    <tr>Bouton</tr>
+    <tr></tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>price</th>
+      <th>Quantité</th>
+
+    <tr></tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let short of panier">
-      <td>france</td>
-      <td>1 €</td>
-      <td>1</td>
-      <td><button class="btn bg-danger">Retirer</button></td>
+      <td>{{short.name}}</td>
+      <td>{{short.size}}</td>
+      <td>{{short.price}} €</td>
+      <td><button (click)="enleveDuPanier(short)" class="btn bg-danger">Retirer</button></td>
     </tr>
+
+
+  <tr>
+      <td></td><td></td><td>Total : {{calculeLeTotalEtDonneLeMoi()}} € </td>
+  </tr>
   </tbody>
 </table>
 

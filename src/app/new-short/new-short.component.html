@@ -1,6 +1,6 @@
 <h1>créer un nouveau short Angular</h1>
 
-<a [routerLink]="['/boutique']" class="btn-primary">Retour aux shorts</a>
+<a routerLink="boutique" class="btn-primary">Retour aux shorts</a>
 <form>
 
   <div class="col-3">
@@ -17,6 +17,11 @@
   <div class="col-3">
     <input placeholder="Prix de votre short" name="price" type="number" #price>
   </div>
+
+
+  <a routerLink ="new-short" class="btn-primary">Créer ce short</a>
+
+
 
   <div class="form-group">
     <button type="submit" (click)="createShort(name.value, color.value, size.value, price.value)" class="btn btn-primary">Créer ce short</button>

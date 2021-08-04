@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-panier',
@@ -7,10 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanierComponent implements OnInit {
 
-  panier = [{"id":1,"name":"jesuisunnom","couleur":"jesuisunecouleur","taille":"jesuisunetaille"},{"id":7,"name":"unnom","couleur":"bleu","taille":"unetaille"},{"id":8,"name":"deuxnom","couleur":"vert","taille":"unetaille"}];
+  panier:any = [];
+
+  calculeLeTotalEtDonneLeMoi(){
+
+    let  total = 0
+
+    this.panier.forEach((short:any)=>{
+      total += short.price
+    })
+
+    return total
+  }
 
 
-  constructor() { }
+  enleveDuPanier(ceShort:any){
+    this.panier.splice( this.panier.indexOf(ceShort), 1)
+  }
+
+
+  constructor(private monClient: HttpClient) {
+
+    this.monClient.get('http://localhost:8000/api/shorts')
+      .subscribe(donnees => {
+        this.panier = donnees
+
+      })
+  }
 
   ngOnInit(): void {
   }
